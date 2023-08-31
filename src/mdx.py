@@ -244,7 +244,7 @@ def run_mdx(model_params, output_dir, model_path, filename, exclude_main=False, 
         vram_gb = device_properties.total_memory / 1024**3
         m_threads = 1 if vram_gb < 8 else 2
     else:
-        torch.device('cpu')
+        device = torch.device('cpu')
 
     model_hash = MDX.get_hash(model_path)
     mp = model_params.get(model_hash)
